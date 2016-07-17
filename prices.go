@@ -83,6 +83,7 @@ func (c *Client) NewPricePoller(since time.Time, instrs ...string) (*PricePoller
 		return nil, err
 	}
 	q := req.URL.Query()
+	q.Set("accountId", string(c.accountId))
 	q.Set("instruments", strings.ToUpper(strings.Join(instrs, ",")))
 	if !since.IsZero() {
 		q.Set("since", strconv.FormatInt(since.UTC().Unix(), 10))

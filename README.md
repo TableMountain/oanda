@@ -27,7 +27,7 @@ func main() {
     if err != nil {
         panic(err)
     }
-
+    client.SelectAccount("<OANDA-ACCOUNTID>")
     // List available instruments
     instruments, err := client.Instruments(nil, nil)
     if err != nil {
